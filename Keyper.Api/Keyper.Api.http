@@ -1,0 +1,6 @@
+@Keyper.Api_HostAddress = http://localhost:5039
+
+GET {{Keyper.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

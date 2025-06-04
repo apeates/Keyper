@@ -1,0 +1,124 @@
+@using System.Security.Claims
+@model List<Keyper.Web1.Models.DashboardViewModel>
+@{
+    ViewData["Title"] = "Şifre Kasası";
+}
+
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>🔐 Kayıtlı Siteler</h2>
+        <div>
+            <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#addModal">➕ Ekle</button>
+            <form method="post" asp-action="Logout" asp-controller="Account" class="d-inline">
+                <button type="submit" class="btn btn-outline-danger">Çıkış Yap</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive shadow-sm">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Site Adı</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Şifre</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    var passwordId = $"password_{Model[i].Id}";
+                    <tr data-id="@Model[i].Id" data-name="@Model[i].SiteName" data-user="@Model[i].SiteUserName" data-pass="@Model[i].SitePassword">
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].SiteName</td>
+                        <td>@Model[i].SiteUserName</td>
+                        <td>
+                            <input type="password" class="form-control d-inline-block w-75" value="@Model[i].SitePassword" id="@passwordId" readonly />
+                            <button class="btn btn-sm btn-outline-secondary toggle-password" data-target="@passwordId">👁</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-success editBtn">🖊️</button>
+                            <button class="btn btn-sm btn-outline-danger deleteBtn">🗑️</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Ekle Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Yeni Site Bilgisi Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+                <input type="hidden" id="addUserId" value="@ViewBag.UserId" />
+                <input id="addSiteName" class="form-control mb-2" placeholder="Site Adı"/>
+                <input id="addUserName" class="form-control mb-2" placeholder="Kullanıcı Adı"/>
+                <input id="addPassword" class="form-control mb-2" placeholder="Şifre"/>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button class="btn btn-primary" id="saveAddBtn">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Güncelle Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Site Bilgisini Güncelle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input id="editSiteName" class="form-control mb-2"/>
+                <input id="editUserName" class="form-control mb-2"/>
+                <input id="editPassword" class="form-control mb-2"/>
+                <input type="hidden" id="editId"/>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button class="btn btn-success" id="saveEditBtn">Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Silme Onay Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Kaydı Sil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Bu kaydı silmek istediğinize emin misiniz?
+                <input type="hidden" id="deleteId"/>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button class="btn btn-danger" id="confirmDeleteBtn">Sil</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/dashboard.js"></script>
+}

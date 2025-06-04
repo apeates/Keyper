@@ -1,0 +1,46 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="container d-flex justify-content-center align-items-start" style="min-height: 85vh; padding-top: 60px;">
+    <div class="row shadow-lg rounded-4 overflow-hidden w-100" style="max-width: 900px;">
+
+        <!-- Sol: Görsel -->
+        <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center bg-light">
+            <img src="/img/logo.png" alt="Logo"
+                 class="img-fluid"
+                 style="max-height: 260px; object-fit: contain;" />
+        </div>
+
+        <!-- Sağ: Form -->
+        <div class="col-md-6 bg-white p-5 d-flex flex-column justify-content-center">
+            <h3 class="text-center mb-4" id="formTitle">Giriş Yap</h3>
+
+            <!-- Kayıt Formu -->
+            <div id="registerForm" class="d-none">
+                <input class="form-control mb-2" id="regUsername" placeholder="Kullanıcı Adı" />
+                <input class="form-control mb-2" id="regPassword" placeholder="Şifre" type="password" />
+                <input class="form-control mb-2" id="regEmail" placeholder="E-Posta" />
+                <input class="form-control mb-2" id="regFirstName" placeholder="Ad" />
+                <input class="form-control mb-3" id="regLastName" placeholder="Soyad" />
+                <button class="btn btn-primary w-100 mb-2" id="registerBtn">Kayıt Ol</button>
+                <p class="text-center mb-0">Zaten üye misin? <button class="btn btn-link p-0" id="toLogin">Giriş Yap</button></p>
+                <div id="registerMessage" class="text-center text-danger mt-2 small"></div>
+            </div>
+
+            <!-- Giriş Formu -->
+            <div id="loginForm" >
+                <input class="form-control mb-2" id="loginUsername" placeholder="Kullanıcı Adı" />
+                <input class="form-control mb-3" id="loginPassword" placeholder="Şifre" type="password" />
+                <button class="btn btn-success w-100 mb-2" id="loginBtn">Giriş Yap</button>
+                <p class="text-center mb-0">Hesabın yok mu? <button class="btn btn-link p-0" id="toRegister">Kayıt Ol</button></p>
+                <div id="loginMessage" class="text-center text-danger mt-2 small"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/auth.js"></script>
+}

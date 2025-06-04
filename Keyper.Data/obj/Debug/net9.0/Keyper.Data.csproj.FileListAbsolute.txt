@@ -1,0 +1,12 @@
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/Keyper.Data.csproj.AssemblyReference.cache
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/Keyper.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/Keyper.Data.AssemblyInfoInputs.cache
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/Keyper.Data.AssemblyInfo.cs
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/Keyper.Data.csproj.CoreCompileInputs.cache
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/bin/Debug/net9.0/Keyper.Data.deps.json
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/bin/Debug/net9.0/Keyper.Data.dll
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/bin/Debug/net9.0/Keyper.Data.pdb
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/Keyper.Data.dll
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/refint/Keyper.Data.dll
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/Keyper.Data.pdb
+/Users/alperates/RiderProjects/Keyper/Keyper.Data/obj/Debug/net9.0/ref/Keyper.Data.dll
